@@ -13,7 +13,32 @@ rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano
 */
 
 const baseUrl = "https://jsonplaceholder.typicode.com/";
-const photos = "photos";
+const resource = "photos";
 
 const params = { "_limit": 6 };
 
+axios.get(baseUrl + resource, { params })
+    .then((res) => {
+        const photos = res.data;
+        // seleziono in contenitore in cui poi inserire le cards con le immagini
+        let photosContainer = document.querySelector(".container");
+
+        // con un ciclo appendo al container il template creato per le card
+        photos.forEach((element) => {
+            let cardTemplate = document.createElement("div");
+            cardTemplate.classList.add("row")
+
+            cardTemplate.innerHTML += `
+                <div class="col">
+                    <div id="pin">
+                        <img src="img/pin.svg" alt="Pin">
+                    </div>
+                    <figure>
+                        <img src="${element.url}" alt="${element.title}" id="photo">
+                        <figcaption>${element.title}</figcaption>
+                    </figure>
+                </div>
+            `
+            photosContainer.appendChild(cardTemplate);
+        });
+    })

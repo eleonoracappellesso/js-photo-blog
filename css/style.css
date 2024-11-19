@@ -24,6 +24,7 @@ h1 {
 
 main {
     background-image: url("../img/cork.png");
+    padding-top: 30px;
 }
 
 .container {
@@ -35,27 +36,44 @@ main {
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
-}
-
-.col {
     position: relative;
-    width: calc((100% - 20px) / 3);
+    flex-basis: 0;
+    width: calc((100% - 10px) / 3);
     background-color: white;
     margin: 10px;
     flex-grow: 1;
     flex-shrink: 0;
 }
 
+figure {
+    width: fit-content;
+    height: 350px;
+}
+
+figure img {
+    width: 270px;
+    height: 270px;
+    margin: 20px;
+}
+
+figcaption {
+    text-align: center;
+}
+
 #pin {
     position: absolute;
     top: -5px;
-    left: 37%;
+    left: 45%;
 }
 
 /* flex utilities */
 
 .d-flex {
     display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 /* media queries */
