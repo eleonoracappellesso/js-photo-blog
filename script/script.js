@@ -41,4 +41,8 @@ axios.get(baseUrl + resource, { params })
             `
             photosContainer.appendChild(cardTemplate);
         });
-    })
+    }).catch((error) => {
+        console.log(error);
+    });
+
+
