@@ -20,7 +20,7 @@ const params = { "_limit": 6 };
 axios.get(baseUrl + resource, { params })
     .then((res) => {
         const photos = res.data;
-        // seleziono in contenitore in cui poi inserire le cards con le immagini
+        // seleziono il contenitore in cui inserire le cards
         let photosContainer = document.querySelector(".container");
 
         // con un ciclo appendo al container il template creato per le card
