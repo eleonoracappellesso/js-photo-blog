@@ -15,7 +15,7 @@ rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano
 
 const overlay = document.getElementById('overlay');
 const imgOverlay = overlay.querySelector('img');
-const closeBtn = document.querySelector('#overlay button');
+const closeBtn = document.querySelector('button');
 const loader = document.getElementById('loader');
 
 const baseUrl = "https://jsonplaceholder.typicode.com/";
@@ -59,10 +59,9 @@ axios.get(baseUrl + resource, { params })
         });
     }).catch((error) => {
         console.log(error);
-    })
-// .finally(() => {
-//     loader.classList.add('d-none');
-// });
+    }).finally(() => {
+        setTimeout(() => { loader.classList.add('d-none') }, 1500);
+    });
 
 
 
