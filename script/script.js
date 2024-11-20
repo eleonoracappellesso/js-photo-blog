@@ -13,6 +13,8 @@ rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano
 */
 
 const overlay = document.getElementById('overlay');
+const imgOverlay = overlay.querySelector('img');
+const closeBtn = document.querySelector('#overlay button');
 
 const baseUrl = "https://jsonplaceholder.typicode.com/";
 const resource = "photos";
@@ -35,7 +37,7 @@ axios.get(baseUrl + resource, { params })
                     <div id="pin">
                         <img src="img/pin.svg" alt="Pin">
                     </div>
-                    <figure>
+                    <figure id="id">
                         <img src="${element.url}" alt="${element.title}" id="photo">
                         <figcaption>${element.title}</figcaption>
                     </figure>
@@ -45,6 +47,28 @@ axios.get(baseUrl + resource, { params })
 
             cardTemplate.addEventListener("click", () => {
                 overlay.classList.remove('d-none');
+                closeBtn.addEventListener("click", () => {
+                    overlay.classList.add('d-none');
+                })
+                cardTemplate.forEach(() => {
+                    const photo = photos.find((el) => {
+                        el.id === parseInt(figure.id)
+                        console.log(figure.id);
+                        imgOverlay.src = photo.url;
+                        imgOverlay.alt = photo.title;
+                    })
+                })
+                // const imgFigure = figure.querySelector('img');
+                // console.log(imgFigure.src);
+                // imgOverlay.src = imgFigure.src;
+                // imgOverlay.alt = imgFigure.alt;
+
+                // const photo = photos.find((el) => {
+                //     el.id === parseInt(figure.id)
+                //     console.log(figure.id);
+                //     imgOverlay.src = photo.url;
+                //     imgOverlay.alt = photo.title;
+                // })
             })
 
         });
