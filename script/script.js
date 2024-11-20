@@ -50,25 +50,8 @@ axios.get(baseUrl + resource, { params })
                 closeBtn.addEventListener("click", () => {
                     overlay.classList.add('d-none');
                 })
-                cardTemplate.forEach(() => {
-                    const photo = photos.find((el) => {
-                        el.id === parseInt(figure.id)
-                        console.log(figure.id);
-                        imgOverlay.src = photo.url;
-                        imgOverlay.alt = photo.title;
-                    })
-                })
-                // const imgFigure = figure.querySelector('img');
-                // console.log(imgFigure.src);
-                // imgOverlay.src = imgFigure.src;
-                // imgOverlay.alt = imgFigure.alt;
-
-                // const photo = photos.find((el) => {
-                //     el.id === parseInt(figure.id)
-                //     console.log(figure.id);
-                //     imgOverlay.src = photo.url;
-                //     imgOverlay.alt = photo.title;
-                // })
+                imgOverlay.src = element.url;
+                imgOverlay.alt = element.title;
             })
 
         });

@@ -86,6 +86,11 @@ figcaption {
     flex-direction: column;
 }
 
+#overlay img {
+    width: 30%;
+    margin: 20px;
+}
+
 button {
     padding: 10px;
 }
