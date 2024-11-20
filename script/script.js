@@ -12,13 +12,14 @@ Inseriamo un foglio JavaScript ed effettuiamo una chiamata AJAX all’API di JSO
 rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano man mano una sotto l’altra ed il titolo abbia una dimensione adeguata
 */
 
+
 const overlay = document.getElementById('overlay');
 const imgOverlay = overlay.querySelector('img');
 const closeBtn = document.querySelector('#overlay button');
+const loader = document.getElementById('loader');
 
 const baseUrl = "https://jsonplaceholder.typicode.com/";
 const resource = "photos";
-
 const params = { "_limit": 6 };
 
 axios.get(baseUrl + resource, { params })
@@ -45,6 +46,7 @@ axios.get(baseUrl + resource, { params })
             `
             photosContainer.appendChild(cardTemplate);
 
+            // creo evento al click sulla card
             cardTemplate.addEventListener("click", () => {
                 overlay.classList.remove('d-none');
                 closeBtn.addEventListener("click", () => {
@@ -57,7 +59,10 @@ axios.get(baseUrl + resource, { params })
         });
     }).catch((error) => {
         console.log(error);
-    });
+    })
+// .finally(() => {
+//     loader.classList.add('d-none');
+// });
 
 
 
